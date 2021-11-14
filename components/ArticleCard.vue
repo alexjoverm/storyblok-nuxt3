@@ -17,14 +17,19 @@
       </div>
       <div class="flex-1 text-gray-700 ml-4">
         <p class="font-semibold">{{ article.content.author.content.name }}</p>
-        <p>{{ article.first_published_at }}</p>
+        <p>{{ date }}</p>
       </div>
     </div>
   </nuxt-link>
 </template>
 
 <script setup>
-const props = defineProps({
-  article: Object
-});
+const props = defineProps({ article: Object });
+const date = computed(() =>
+  new Date(props.article.content.date).toLocaleDateString("en-US", {
+    month: "short",
+    day: "2-digit",
+    year: "numeric"
+  })
+);
 </script>

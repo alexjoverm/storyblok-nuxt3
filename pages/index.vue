@@ -1,9 +1,10 @@
 <template>
-  <div v-editable="story.content">
+  <div v-editable="state.story.content">
     <component
       :blok="blok"
+      :authors="authors.stories"
       :is="blok.component"
-      v-for="blok in story.content.body"
+      v-for="blok in state.story.content.body"
       :key="blok._uid"
     />
   </div>
@@ -11,19 +12,20 @@
 
 <script setup>
 const storyapi = useStoryApi();
-const { data } = await storyapi.get("cdn/stories/home", {
+const { data: home } = await storyapi.get("cdn/stories/home", {
   version: "draft",
-  resolve_relations: ["FeaturedArticles.articles", "Article.author"]
+  resolve_relations: ["FeaturedArticles.articles"]
+});
+const { data: authors } = await storyapi.get("cdn/stories", {
+  version: "draft",
+  starts_with: "authors/"
 });
 
-const story = data.story;
+const state = reactive({ story: home.story });
 
 onMounted(() => {
-  console.log(story);
-  storyapi.get("cdn/stories/home", {
-    version: "draft",
-    resolve_relations: ["FeaturedArticles.articles", "Article.author"]
+  useStoryBridge(state.story.id, async (story) => (state.story = story), {
+    resolveRelations: ["FeaturedArticles.articles"]
   });
-  useStoryBridge(data.story.id, (story) => (data.story = story));
 });
 </script>

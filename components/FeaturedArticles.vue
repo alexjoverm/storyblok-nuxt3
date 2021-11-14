@@ -5,7 +5,7 @@
     <div class="grid grid-cols-3 gap-4 mt-10">
       <ArticleCard
         :article="article"
-        v-for="article in blok.articles"
+        v-for="article in articles"
         :key="article.id"
       />
     </div>
@@ -14,6 +14,13 @@
 
 <script setup>
 const props = defineProps({
-  blok: Object
+  blok: Object,
+  authors: Array
 });
+
+const articles = computed(() =>
+  useWithAuthors(props.blok.articles, props.authors)
+);
+
+console.log(articles);
 </script>
