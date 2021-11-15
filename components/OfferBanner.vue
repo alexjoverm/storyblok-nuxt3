@@ -1,6 +1,6 @@
 <template>
   <section v-editable="blok" :class="{ 'bg-gray-700': blok.dark }">
-    <div class="flex container mx-auto py-10 px-12">
+    <div class="flex container max-w-screen-lg mx-auto py-10 px-12">
       <a :href="blok.link.url" class="w-2/5 block w-32 px-2">
         <img
           class="block w-48 transform rotate-6 mx-auto"

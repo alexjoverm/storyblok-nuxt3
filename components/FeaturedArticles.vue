@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto py-10" v-editable="blok">
+  <section class="container max-w-screen-lg mx-auto py-10" v-editable="blok">
     <h1 class="text-5xl text-gray-700">{{ blok.title }}</h1>
 
     <div class="grid grid-cols-2 gap-4 mt-10">

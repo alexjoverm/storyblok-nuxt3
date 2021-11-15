@@ -25,6 +25,5 @@ export default defineNuxtConfig({
       "@storyblok/nuxt",
       { accessToken: "WURiWJAFtSd3GteoFyMMkwtt", cache: { type: "none" } }
     ]
-  ],
-  vite: false
+  ]
 });

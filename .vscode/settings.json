@@ -1,4 +1,5 @@
 {
   "editor.lineHeight": 1.4,
-  "editor.fontSize": 15
+  "editor.fontSize": 14,
+  "window.zoomLevel": 1
 }
