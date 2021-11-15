@@ -16,11 +16,14 @@
                 alt=""
               />
             </div>
-            <div class="flex-1 text-gray-700 ml-4">
-              <p class="font-semibold">
-                {{ article.content.author.content.name }}
-              </p>
-              <p>{{ date }}</p>
+            <div class="flex flex-1 text-gray-700 ml-4">
+              <div>
+                <p class="font-semibold">
+                  {{ article.content.author.content.name }}
+                </p>
+                <p>{{ date }}</p>
+              </div>
+              <div class="flex-1 self-end text-right">{{ views }} reads</div>
             </div>
           </div>
         </div>
@@ -44,6 +47,12 @@ const { data } = await storyapi.get(`cdn/stories/articles/${slug}`, {
   resolve_relations: ["Article.author"]
 });
 
+// Count views on this article
+const { data: dataViews } = await useFetch("/api/count", {
+  params: { path: slug }
+});
+const views = dataViews.value.count;
+
 const article = reactive(data.story);
 
 const date = computed(() =>
@@ -55,7 +64,7 @@ const date = computed(() =>
 );
 const content = computed(() => parse(article.content.content));
 
-onMounted(() => {
+onMounted(async () => {
   useStoryBridge(article.id, (story) => Object.assign(article, story), {
     resolveRelations: ["Article.author"]
   });
