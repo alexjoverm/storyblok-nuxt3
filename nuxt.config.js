@@ -7,6 +7,16 @@ export default defineNuxtConfig({
         rel: "stylesheet",
         type: "text/css",
         href: "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      },
+      {
+        rel: "stylesheet",
+        type: "text/css",
+        href: "https://unpkg.com/@tailwindcss/typography@0.4.x/dist/typography.min.css"
+      },
+      {
+        rel: "stylesheet",
+        type: "text/css",
+        href: "https://unpkg.com/@highlightjs/cdn-assets@11.3.1/styles/night-owl.min.css"
       }
     ]
   },
