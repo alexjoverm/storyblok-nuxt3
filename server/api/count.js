@@ -7,9 +7,7 @@ export default async (req, res) => {
 
   countMap[query.path] = (countMap[query.path] || 0) + 1;
 
-  console.log(countMap);
   return {
     count: countMap[query.path]
   };
-  return {};
 };
