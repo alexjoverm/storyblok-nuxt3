@@ -1,13 +1,13 @@
-import { useQuery } from "h3";
+// import { useQuery } from "h3";
 
-const countMap = {};
+// const countMap = {};
 
-export default async (req, res) => {
-  const query = useQuery(req);
+// export default async (req, res) => {
+//   const query = useQuery(req);
 
-  countMap[query.path] = (countMap[query.path] || 0) + 1;
+//   countMap[query.path] = (countMap[query.path] || 0) + 1;
 
-  return {
-    count: countMap[query.path]
-  };
-};
+//   return {
+//     count: countMap[query.path]
+//   };
+// };

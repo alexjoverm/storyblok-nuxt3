@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main class="container max-w-screen-lg mx-auto">
+    <!-- <main class="container max-w-screen-lg mx-auto">
       <header class="text-lg max-w-prose mx-auto mt-12">
         <h1
           class="text-gray-700 text-5xl text-center font-semibold leading-tight"
@@ -32,42 +32,41 @@
         class="prose prose-lg prose-green mt-12 mx-auto"
         v-html="content"
       ></article>
-    </main>
+    </main> -->
   </div>
 </template>
 
 <script setup>
-const route = useRoute();
-const storyapi = useStoryApi();
-const { parse } = useMarkdown();
+// const route = useRoute();
+// const storyapi = useStoryApi();
+// const { parse } = useMarkdown();
 
-const { slug } = route.params;
+// // // Get article data
+// const { slug } = route.params;
+// const { data } = await storyapi.get(`cdn/stories/articles/${slug}`, {
+//   version: "draft",
+//   resolve_relations: ["Article.author"]
+// });
+// const article = reactive(data.story);
+// const content = computed(() => parse(article.content.content));
 
-// Count views on this article
-const { data: dataViews } = await useFetch("/api/count", {
-  params: { path: slug }
-});
-const views = dataViews.value.count;
+// const date = computed(() =>
+//   new Date(article.content.date).toLocaleDateString("en-US", {
+//     month: "short",
+//     day: "2-digit",
+//     year: "numeric"
+//   })
+// );
 
-// Get article data
-const { data } = await storyapi.get(`cdn/stories/articles/${slug}`, {
-  version: "draft",
-  resolve_relations: ["Article.author"]
-});
-const article = reactive(data.story);
-const content = computed(() => parse(article.content.content));
+// // Count views on this article
+// const { data: dataViews } = await useFetch("/api/count", {
+//   params: { path: slug }
+// });
+// const views = dataViews.value.count;
 
-const date = computed(() =>
-  new Date(article.content.date).toLocaleDateString("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric"
-  })
-);
-
-onMounted(async () => {
-  useStoryBridge(article.id, (story) => Object.assign(article, story), {
-    resolveRelations: ["Article.author"]
-  });
-});
+// onMounted(async () => {
+//   useStoryBridge(article.id, (story) => Object.assign(article, story), {
+//     resolveRelations: ["Article.author"]
+//   });
+// });
 </script>
