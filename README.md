@@ -8,32 +8,34 @@
 
 ## 🚀 Live Demo
 
+https://vue-trese.vercel.app/
+
 ## 🔥 Usage
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+The project comes with [@storyblok/nuxt@next](https://github.com/storyblok/storyblok-nuxt), the Storyblok module for Nuxt 3, installed by default.
 
-## Setup
+Start by cloning it and install dependencies:
 
-Make sure to install the dependencies
-
-```bash
-yarn install
+```
+git clone https://github.com/alexjoverm/storyblok-nuxt3.git
+cd storyblok-nuxt3
+npm install
 ```
 
-## Development
+Then run it and open http://localhost:3000 :
 
-Start the development server on http://localhost:3000
-
-```bash
-yarn dev
+```
+npm run dev
 ```
 
-## Production
+## 🔗 Related Links
 
-Build the application for production:
+- [Getting Started with Storyblok](https://www.storyblok.com/docs/guide/getting-started)
+- [Understand Content Structures](https://www.storyblok.com/docs/guide/essentials/content-structures)
+- [Storyblok V2](https://www.storyblok.com/v2)
 
-```bash
-yarn build
-```
+## 🚀 Deployment
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+The easiest way is just to use [Vercel](https://vercel.com/). It's as easy as installing the CLI and run `vercel` on the command line.
+
+For more info, checkout the [Nuxt 3 deployment documentation](https://v3.nuxtjs.org/docs/deployment).
