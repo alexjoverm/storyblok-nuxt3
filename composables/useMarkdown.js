@@ -5,9 +5,9 @@ import html from "highlight.js/lib/languages/xml";
 hljs.registerLanguage("vue", html);
 
 setOptions({
-  highlight: (code, lang) => hljs.highlight(lang, code).value
+  highlight: (code, language) => hljs.highlight(code, { language }).value
 });
 
-export default function () {
+export default () => {
   return { parse };
-}
+};

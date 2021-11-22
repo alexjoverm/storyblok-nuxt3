@@ -21,9 +21,7 @@ export default defineNuxtConfig({
     ]
   },
   buildModules: [
-    [
-      "@storyblok/nuxt",
-      { accessToken: "WURiWJAFtSd3GteoFyMMkwtt", cache: { type: "none" } }
-    ]
+    ["@storyblok/nuxt", { accessToken: "WURiWJAFtSd3GteoFyMMkwtt" }]
   ]
+  // vite: false
 });

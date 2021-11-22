@@ -6,12 +6,10 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@storyblok/nuxt": "file:../storyblok-nuxt/lib",
-    "@storyblok/vue": "file:../storyblok-vue/lib",
+    "@storyblok/nuxt": "3.0.0-beta.1",
     "axios": "^0.21.1",
     "highlight.js": "^11.3.1",
     "marked": "^4.0.3",
-    "nuxt3": "latest",
-    "storyblok-js-client": "^4.1.5"
+    "nuxt3": "latest"
   }
 }

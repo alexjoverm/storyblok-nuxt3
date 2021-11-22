@@ -16,15 +16,16 @@ const { data: home } = await storyapi.get("cdn/stories/home", {
   version: "draft",
   resolve_relations: ["FeaturedArticles.articles"]
 });
+
+const state = reactive({ story: home.story });
+
 const { data: authors } = await storyapi.get("cdn/stories", {
   version: "draft",
   starts_with: "authors/"
 });
 
-const state = reactive({ story: home.story });
-
 onMounted(() => {
-  useStoryBridge(state.story.id, async (story) => (state.story = story), {
+  useStoryBridge(state.story.id, (story) => (state.story = story), {
     resolveRelations: ["FeaturedArticles.articles"]
   });
 });
